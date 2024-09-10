@@ -1,0 +1,14 @@
+opencv-python-headless~=4.5.5.62
+moviepy
+vaderSentiment
+textblob
+fastapi
+librosa
+flask
+ffmpeg
+reportlab
+pymongo
+numpy
+tensorflow
+keras
+python-dotenv
