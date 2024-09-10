@@ -99,7 +99,7 @@ This project is licensed under the Non-Commercial Use License. See the `LICENSE`
 * [TextBlob](https://textblob.readthedocs.io/en/dev/)
 * [Librosa](https://librosa.org/)
 * [OpenCV](https://opencv.org/)
-* [ONNX](https://onnx.ai/)
+* [TensorFlow Keras][(https://onnx.ai/](https://www.tensorflow.org/guide/keras))
 
 
 **Feel free to contact me if you have any questions or need further assistance. Happy coding!**
