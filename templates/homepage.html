@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="static/homepage.css">
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <div class="container">
+       
+        <!--<h1>A.P.E</h1>-->
+      </div>
+
+
+
+      <header>
+        <h1></h1>
+        <h2 class="logo"><img src="static/logo.jpg" style="width:60px;height:50px;"></h2>
+     <nav class="navigation">
+           <button class="btnLogin-popup" id="loginButton">Login</button>
+     </nav>
+    </header>
+
+    <div class="wrapper">
+      <span class="icon-close" id="icon-close">
+          <ion-icon name="close-outline"></ion-icon>
+      </span>
+
+
+      <div class="form-box login">
+        <h2>Login</h2>
+        <form action="#" method="POST">
+            <input type="hidden" name="action" value="login"> <!-- Hidden field for login action -->
+            <div class="input-box">
+                <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                <input type="email" name="Email" required>
+                <label>Email</label>
+            </div>
+            <div class="input-box">
+                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                <input type="password" name="Password" required>
+                <label>Password</label>
+            </div>
+            <div class="remember-forgot">
+                <label><input type="checkbox" required> Remember me</label>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <div class="login-register">
+                <p>Don't have an account? <a href="#" class="register-link" id="registerButton">Register</a></p>
+            </div>
+        </form>
+    </div>
+    
+  
+
+  <div class="form-box register">
+    <h2>Registration</h2>
+    <form action="#" method="POST">
+        <input type="hidden" name="action" value="register"> <!-- Hidden field for register action -->
+        <div class="input-box">
+            <span class="icon"><ion-icon name="person"></ion-icon></span>
+            <input type="text" name="Name" required>
+            <label>Name</label>
+        </div>
+        <div class="input-box">
+            <span class="icon"><ion-icon name="person"></ion-icon></span>
+            <input type="text" name="Username" required>
+            <label>Username</label>
+        </div>
+        <div class="input-box">
+            <span class="icon"><ion-icon name="mail"></ion-icon></span>
+            <input type="email" name="Email" required>
+            <label>Email</label>
+        </div>
+        <div class="input-box">
+            <span class="icon"><ion-icon name="phone-portrait"></ion-icon></span>
+            <input type="tel" name="Mobile Number" id="mobileNumber" required>
+            <span id="mobileNumberValidationIcon"></span>
+            <label>Mobile Number</label>
+        </div>
+
+        <div class="input-box">
+          <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+          <input type="password" name="Password" id="password" required value="">
+          <label>Password</label>
+        </div>
+        
+        <div class="input-box">
+          <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+          <input type="password" name="Confirm Password" id="confirmPassword" required value="">
+          <span id="passwordMatchIcon"></span> <!-- Element for displaying green tick -->
+          <label>Confirm Password</label>
+        </div>
+
+      <div class="remember-forgot">
+       <label><input type="checkbox" required>I agree to the terms & conditions</label>
+      
+      </div>
+      <button type="submit" 
+      class="btn">Register</button>
+          <div class="login-register">
+           <p>Already have an account?
+              <a href="#" class="login-link">Login</a></p>   
+          </div>
+  </form>
+  </div>
+  </div>
+
+   <!-- Centered box with text -->
+<div class="center-box" id="center-box">
+  <h2>Welcome to A.P.E</h2>
+  <h3>Automatic Presentation Evaluation[A.P.E]</h3>
+  
+</div>
+
+ <script src="static/homepage.js"></script>
+ <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+ <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+      <section>
+        <h2 class="secHeading">About A.P.E</h2>
+        <p class="text">
+          Automatic Presentation Evaluation (A.P.E) is a revolutionary solution for smart education assessment. At A.P.E, we're a team of dedicated individuals passionate about enhancing the educational experience through cutting-edge technology. Our mission is to streamline the evaluation process for student presentations, empowering educators and students alike. By harnessing the power of machine learning algorithms, we've developed a comprehensive system that assesses various aspects of a presentation, including confidence, expression, and sentiment analysis.
+        </p>
+        
+        <p class="text">
+          Our Automatic Presentation Evaluation system is designed to empower students, professionals, and anyone looking to enhance their presentation skills. By harnessing the power of facial recognition, audio analysis, and sentiment interpretation, our platform offers transformative feedback that drives growth and proficiency in public speaking and communication.
+        </p>
+        
+        <p class="text">
+          Our Automatic Presentation Evaluation system leverages cutting-edge technology to provide comprehensive feedback on presentation skills. By analyzing facial expressions, speech delivery, and sentiment, our application offers valuable insights that empower students to enhance their communication prowess.
+        </p>
+
+        <div class="bg bg1">
+          <h2 class="desc">Functions</h2>
+        </div>
+
+        <ul class="text">
+          
+            <li>Facial Emotion Analysis:
+            <p>Utilizing sophisticated facial recognition algorithms, our system accurately identifies emotions displayed during a presentation. Emotions such as happiness, surprise, sadness, and more are assessed to gauge the presenter's engagement and expressiveness.
+            </P> </li>
+              <li>Speech Delivery Analysis:
+            <p> Our platform analyzes the audio components of a presentation, evaluating critical factors like speech rate, pitch, and amplitude. This analysis provides detailed feedback on the pace, clarity, and modulation of the presenter's voice.
+
+            </p> </li>
+            <li>Sentiment Analysis: 
+            <p> Leveraging sentiment analysis techniques, our system interprets the overall sentiment conveyed in the presentation. By understanding the emotional tone of the presentation, our tool helps students refine their messaging and connect more effectively with their audience.
+
+            </p> </li> 
+            
+            <li>Combination of Metrics:
+            <p> Our unique approach combines multiple metrics—facial emotions, speech characteristics, and sentiment—to generate a holistic evaluation. This comprehensive analysis provides a nuanced understanding of a presenter's strengths and areas for improvement.
+
+            </p> </li>
+          </ul>
+        </p>
+        
+
+          <div class="bg bg2">
+            <h2 class="desc">Prospects</h2>
+          </div>
+  
+          <ul class="text">
+            <li>Enhanced Presentation Skills
+            </p>Receive actionable feedback to improve facial expressiveness and engagement during presentations.
+            </p> </li>
+            <li>Refined Speech Delivery
+            </p>Gain insights into speech patterns and modulation, enabling refinement of delivery techniques.
+            </p> </li>
+            <li>Improved Audience Connection
+            </p>Understand the emotional impact of your presentation and adjust content to resonate with diverse audiences.
+            </p> </li>
+            <li>Confidence Building
+            </p>Build confidence through detailed evaluations, fostering continuous improvement in presentation skills.
+            </p> </li>
+            <li>Innovative Learning Experience
+            </p>Explore the intersection of technology and communication, harnessing data-driven insights for effective presentations.
+            </p> </li>
+          </ul>
+
+            <div class="bg bg3">
+                <h2 class="desc">Contact us</h2>
+              </div>
+      
+              <p class="text">
+                To reach out regarding our Automatic Presentation Evaluation project or for any inquiries, please feel free to contact us using the information below:
+              </p>
+              
+              <p class="text">
+                Email: info@presentationevaluation.com
+              </p>
+              
+              <p class="text">
+                Phone: +91 8989881188
+              </p>
+              
+              <p class="text">
+                Address: 123 Presentation Way, Tech City, West Bengal, 799256
+              </p>
+              
+              <p class="text">
+                We welcome any questions, feedback, or collaboration opportunities related to our innovative platform. Don't hesitate to reach out, and we look forward to connecting with you!
+              </p>
+              
+          
+
+        
+      </section>
+    </div>
+  </body>
+</html>

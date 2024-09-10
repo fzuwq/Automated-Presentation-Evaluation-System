@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="static/processing.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing...</title>
+</head>
+<body>
+    <div class="hero">
+        <video autoplay loop muted plays-inline class="back-video">
+            <source src="static/video.mp4" type="video/mp4">
+        </video> 
+        <nav>
+            <img src="images/logo.png" class="Logo">
+        </nav>
+        <div class="content">
+            <h1>Processing...</h1>
+        </div>
+    </div>
+
+    <!-- JavaScript for redirection -->
+    <script>
+        // Function to check for the availability of presentation_result
+        function checkForResult() {
+            // Send an AJAX request to the server to check if presentation_result is available
+            fetch('/check-result?video_path={{ video_path }}')
+            .then(response => response.json())
+            .then(data => {
+                if (data.result_available) {
+                    // Redirect to the result page with presentation_result
+                    window.location.href = '/result?video_path={{ video_path }}&presentation_result=' + encodeURIComponent(JSON.stringify(data.presentation_result));
+                } else {
+                    // Wait for a while and check again
+                    setTimeout(checkForResult, 20000); // Check every 20 seconds
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        // Start checking for the result
+        checkForResult();
+    </script>
+</body>
+</html>

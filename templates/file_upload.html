@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Upload</title>
+  <!-- External Stylesheets -->
+  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="static/file_upload.css">
+</head>
+<body>
+  <div class="container">
+    <div class="wrapper">
+      <header>File Uploader</header>
+      <!-- File Upload Form -->
+      <form id="uploadForm" action="/file-upload" method="post" enctype="multipart/form-data">
+        <label for="file" class="file-upload-btn">
+          <i class="fas fa-cloud-upload-alt"></i>
+          <p>Browse Video File to Upload (Max size: 100 MB)</p>
+        </label>
+        <input class="file-input" id="file" type="file" name="Video" hidden>
+      </form>
+      <!-- Progress Area -->
+      <section class="progress-area"></section>
+      <!-- Uploaded Area -->
+      <section class="uploaded-area"></section>
+      <!-- Cancel and Confirm Buttons (initially hidden) -->
+      <div class="btn-group" id="btnGroup" style="display: none;">
+        <button class="btn-cancel" id="cancelBtn">
+          Cancel</button>
+        <button class="btn-confirm" id="confirmBtn">
+          Confirm</button>
+      </div>
+    </div>
+    <!-- Back to Dashboard button -->
+    <nav class="btn-group">
+      <div>
+        <button class="back-to-dashboard-btn" onclick="window.location.href='/dashboard'">
+          Back to Dashboard</button>
+      </div>
+    </nav>
+    
+    <!-- Forward to Processing button (initially hidden) -->
+    <nav class="btn-group" id="processingBtnGroup" style="display: none;">
+      <div>
+        <button class="processing-btn" id="processBtn">
+          Process Video</button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- External Script -->
+  <script src="static/file_upload.js"></script>
+</body>
+</html>

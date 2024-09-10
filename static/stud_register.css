@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+  }
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('background.png') no-repeat;
+    background-position:center;
+    background-size:auto;
+  }
+  .login-form {
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  }
+  .login-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    
+    
+  }
+  .login-form input[type="text"],
+  .login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  }
+  .login-form input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .login-form input[type="submit"]:hover {
+    background-color: #2ea40d;
+  }
+  .login-form p {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .login-form a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .login-form a:hover {
+    color: #111;
+  }
+
+  /* Style for the gender container */
+.gender-container {
+  margin-bottom: 20px;
+  color: #111;
+}
+
+/* Style for the radio button group */
+.radio-group {
+  display: flex;
+  align-items: center;
+}
+
+/* Style for the radio buttons */
+.radio-group input[type="radio"] {
+  display: none; /* Hide the actual radio buttons */
+}
+
+/* Style for the radio button labels */
+.radio-group label {
+  margin-right: 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Style for the custom radio buttons */
+.radio-group label::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  border: 2px solid #4CAF50;
+  border-radius: 50%;
+}
+
+/* Style for the custom radio button when selected */
+.radio-group input[type="radio"]:checked + label::before {
+  background-color: #4CAF50;
+}
+
+/* Style for the "Back to Dashboard" button */
+#backToDashboardButton {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 999; /* Ensure it's above other elements */
+}
+
+/* Hover effect for the button */
+#backToDashboardButton:hover {
+  background-color: #45a049;
+}
+
+/* Active effect for the button */
+#backToDashboardButton:active {
+  background-color: #3e8e41;
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="static/result.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Container for Confidence Score and Remarks -->
+        <div class="result-container">
+            <h1>Confidence Score</h1>
+            <p>{{ presentation_result['Confidence Score'] }}</p>
+
+            <h1>Remarks</h1>
+            <p>{{ presentation_result['Remarks'] }}</p>
+        </div>
+
+        <!-- Container for Individual Scores -->
+        <div class="score-container">
+            <h2>Individual Scores</h2>
+            <div class="score-item">
+                <span>Emotion Score:</span>
+                <span>{{ presentation_result['Emotion Score'] }}</span>
+            </div>
+            <div class="score-item">
+                <span>Speech Sentiment Score:</span>
+                <span>{{ presentation_result['Vader Sentiment Score'] }}</span>
+            </div>
+            <div class="score-item">
+                <span>Speech Rate Score:</span>
+                <span>{{ presentation_result['Speech Rate Score'] }}</span>
+            </div>
+            <div class="score-item">
+                <span>Vocal Frequency Score:</span>
+                <span>{{ presentation_result['Frequency Score'] }}</span>
+            </div>
+            <div class="score-item">
+                <span>Vocal Amplitude Score:</span>
+                <span>{{ presentation_result['Amplitude Score'] }}</span>
+            </div>
+        </div>
+
+        <!-- Button group for Update and Back to Dashboard buttons -->
+        <div class="btn-group">
+            <button class="back-to-dashboard-btn">Back to Evaluation</button>
+            <button class="update-result-btn">Update Result to Database</button>
+        </div>
+    </div>
+
+    <!-- JavaScript to handle button clicks -->
+    <script>
+        // Function to handle update result button click
+        document.querySelector(".update-result-btn").addEventListener("click", function() {
+            var confidenceScore = '{{ presentation_result["Confidence Score"] }}';
+            var remarks = '{{ presentation_result["Remarks"] }}';
+            var emotionScore = '{{ presentation_result["Emotion Score"] }}';
+            var sentimentScore = '{{ presentation_result["Vader Sentiment Score"] }}';
+            var speechRateScore = '{{ presentation_result["Speech Rate Score"] }}';
+            var frequencyScore = '{{ presentation_result["Frequency Score"] }}';
+            var amplitudeScore = '{{ presentation_result["Amplitude Score"] }}';
+
+    
+            // Send a POST request to update the result
+            fetch('/result', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 
+                    confidenceScore: confidenceScore,
+                    remarks: remarks,
+                    emotionScore: emotionScore,
+                    sentimentScore: sentimentScore,
+                    speechRateScore: speechRateScore,
+                    frequencyScore: frequencyScore,
+                    amplitudeScore: amplitudeScore
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Result updated successfully!');
+                } else {
+                    alert('Failed to update result.');
+                }
+            })
+            .catch(error => {
+                console.error('Error updating result:', error);
+                alert('An error occurred while updating result.');
+            });
+        });
+    
+        // Function to handle back to evaluation button click
+        document.querySelector(".back-to-dashboard-btn").addEventListener("click", function() {
+            // Clear videos data using fetch (POST request to /clear-videos)
+            fetch('/clear-videos', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Videos data cleared successfully!');
+                } else {
+                    alert('Failed to clear videos data.');
+                }
+                // Redirect back to the evaluation page
+                window.location.href = "/student-evaluate";
+            })
+            .catch(error => {
+                console.error('Error clearing videos data:', error);
+                alert('An error occurred while clearing videos data.');
+                // Redirect back to the evaluation page even if an error occurs
+                window.location.href = "/student-evaluate";
+            });
+        });
+    </script>
+</body>
+</html>

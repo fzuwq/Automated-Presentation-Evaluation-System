@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration Form</title>
+  <link rel="stylesheet" href="static/stud_register.css">
+</head>
+  
+<body>
+  <button id="backToDashboardButton">Back to Dashboard</button>
+
+  <div class="login-container">
+    <form id="registrationForm" class="login-form">
+      <h2>Student Registration Form</h2>
+      <input type="text" id="name" placeholder="Name" required />
+      
+      <input type="text" id="class" placeholder="Class" required />
+      <input type="text" id="section" placeholder="Section" required />
+      <input type="text" id="rollNumber" placeholder="Roll Number" required />
+      
+      <!-- Replace gender input with two button inputs -->
+      <div class="gender-container">
+        <label for="maleRadio">Gender:</label>
+        <div class="radio-group">
+          <input type="radio" id="maleRadio" name="gender" value="Male">
+          <label for="maleRadio">Male</label>
+          <input type="radio" id="femaleRadio" name="gender" value="Female">
+          <label for="femaleRadio">Female</label>
+        </div>
+      </div>
+      
+      
+      <input type="submit" value="Register" />
+    </form>
+  </div>
+
+  <script src="static/stud_register.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</body>
+</html>

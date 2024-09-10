@@ -1,0 +1,256 @@
+ /* Add your CSS styles here */
+    /* Import Google font - Poppins */
+   @import url(https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap);
+   
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+  
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: url('file_upload.png') no-repeat;
+        background-position:center;
+        
+      }
+  
+      ::selection {
+        color: #fff;
+        background: #6990F2;
+      }
+  
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+  
+      .wrapper {
+        background: #fff;
+        border-radius: 5px;
+        padding: 30px;
+        box-shadow: 7px 7px 12px rgba(0,0,0,0.05);
+        backdrop-filter: blur(20px);
+        width: 430px;
+        margin-bottom: 20px;
+        
+      }
+  
+      .wrapper header {
+        color: #6990F2;
+        font-size: 27px;
+        font-weight: 600;
+        text-align: center;
+      }
+  
+      .wrapper form {
+        height: 167px;
+        display: flex;
+        cursor: pointer;
+        margin: 30px 0;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 5px;
+        border: 2px dashed #6990F2;
+      }
+  
+      form :where(i, p) {
+        color: #6990F2;
+      }
+  
+      form i {
+        font-size: 50px;
+      }
+  
+      form p {
+        margin-top: 15px;
+        font-size: 16px;
+      }
+  
+      section .row {
+        margin-bottom: 10px;
+        background: #E9F0FF;
+        list-style: none;
+        padding: 15px 20px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+  
+      section .row i {
+        color: #6990F2;
+        font-size: 30px;
+      }
+  
+      section .details span {
+        font-size: 14px;
+      }
+  
+      .progress-area .row .content {
+        width: 100%;
+        margin-left: 15px;
+      }
+  
+      .progress-area .details {
+        display: flex;
+        align-items: center;
+        margin-bottom: 7px;
+        justify-content: space-between;
+      }
+  
+      .progress-area .content .progress-bar {
+        height: 6px;
+        width: 100%;
+        margin-bottom: 4px;
+        background: #fff;
+        border-radius: 30px;
+      }
+  
+      .content .progress-bar .progress {
+        height: 100%;
+        width: 0%;
+        background: #6990F2;
+        border-radius: inherit;
+      }
+  
+      .uploaded-area {
+        max-height: 232px;
+        overflow-y: scroll;
+        margin-top: 20px;
+      }
+  
+      .uploaded-area.onprogress {
+        max-height: 150px;
+      }
+  
+      .uploaded-area::-webkit-scrollbar {
+        width: 0px;
+      }
+  
+      .uploaded-area .row .content {
+        display: flex;
+        align-items: center;
+      }
+  
+      .uploaded-area .row .details {
+        display: flex;
+        margin-left: 15px;
+        flex-direction: column;
+      }
+  
+      .uploaded-area .row .details .size {
+        color: #404040;
+        font-size: 11px;
+      }
+  
+      .uploaded-area i.fa-check {
+        font-size: 16px;
+      }
+  
+      /* Custom styles for file upload button */
+      .file-upload-btn {
+        cursor: pointer;
+      }
+  
+      .file-upload-btn i {
+        font-size: 30px;
+        margin-bottom: 15px;
+      }
+  
+      .file-upload-btn p {
+        font-size: 16px;
+      }
+  
+      .file-input {
+        display: none;
+      }
+  
+      /* Styles for buttons */
+      .btn-group {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+      }
+  
+      .btn-group button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        outline: none;
+      }
+  
+      .btn-confirm {
+        background-color: #6990F2;
+        color: #fff;
+        align-self: right;
+        justify-content: right;
+        
+      }
+  
+      .btn-cancel {
+        background-color: #ff4d4d;
+        color: #fff;
+        align-self: left;
+        justify-content: right;
+        
+        
+      }
+  
+      /* Styles for back to dashboard button */
+      .back-to-dashboard-btn {
+        width: 100%;
+        height: 45px;
+        background: whitesmoke;
+        border: none;
+        outline: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1em;
+        font: bolder;
+        color: black;
+        font-weight: 500;
+      }
+
+
+      .processing-btn {
+        width: 100%;
+        height: 45px;
+        background: whitesmoke;
+        border: none;
+        outline: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1em;
+        font: bolder;
+        color: black;
+        font-weight: 500;
+      }
+
+      .btn-group {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px; /* Adjust as needed */
+      }
+      
+      .btn-cancel,
+      .btn-confirm {
+        flex: 1; /* Equal width for both buttons */
+      }
+      
+      .btn-confirm {
+        margin-left: 180px; /* Add some space between buttons */
+      }
+
+      
+
+      

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Streaming For Evaluation</title>
+  
+    <link rel="stylesheet" href="static/live_stream.css">
+</head>
+<body>
+    <h2>Live Stream For Evaluation</h2>
+    <div class="container">
+        
+        <div id="timer">00:00</div> <!-- Timer display -->
+        <video autoplay id="stream-elem" controls width="600" height="400">
+            <source src="" type="">
+        </video>
+    </div>
+
+    <button class="start-stream" id="start-stream">Start Stream</button>
+    <button class="stop-media" id="stop-media">Stop Stream</button>
+    <button id="download-video" style="display: none;">Download Video</button>
+    <button id="file-upload" style="display: none;">Go to File Upload</button>
+    
+    <!-- Back to Dashboard button -->
+    <nav class="btn-group">
+        <div>
+            <button class="back-to-dashboard-btn" onclick="window.location.href='/dashboard'">
+                Back to Dashboard
+            </button>
+        </div>
+    </nav>
+
+    <script src="static/live_stream.js"></script>
+</body>
+</html>
