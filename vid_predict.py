@@ -1,19 +1,20 @@
-import cv2
-import onnxruntime as ort
-import numpy as np
 import json
-
-def preprocess_input(img):
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    img = cv2.resize(img, (48, 48))  # Resize to 48x48 as expected by the model
-    img = img.astype("float32") / 255.0
-    img = np.expand_dims(img, axis=-1)  # Add channel dimension at the end
-    img = np.expand_dims(img, axis=0)   # Add batch dimension
-    return img
+import cv2
+import numpy as np
+from keras.models import model_from_json
+from keras.preprocessing import image
 
 def process_video(video_path):
-    # Load the ONNX model
-    ort_session = ort.InferenceSession('Model/fer.onnx')
+    # Loading JSON model
+    json_file = open('Model\\fer.json', 'r')
+    loaded_model_json = json_file.read()
+    json_file.close()
+    model = model_from_json(loaded_model_json)
+
+    # Loading weights
+    model.load_weights('Model\\fer.h5')
+
+    face_haar_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
     cap = cv2.VideoCapture(video_path)
 
@@ -22,30 +23,31 @@ def process_video(video_path):
 
     # Initialize dictionary to store emotion counts
     emotion_counts = {emotion: 0 for emotion in emotion_percentages}
-    emotions_list = list(emotion_counts.keys())
 
     while True:
-        ret, frame = cap.read()
+        ret, img = cap.read()
         if not ret:
             break
 
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-        faces = face_cascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=5)
+        gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-        for (x, y, w, h) in faces:
-            face = frame[y:y+h, x:x+w]
-            face = preprocess_input(face)
-            onnx_inputs = {ort_session.get_inputs()[0].name: face}
-            onnx_outputs = ort_session.run(None, onnx_inputs)
-            predictions = onnx_outputs[0][0]
+        faces_detected = face_haar_cascade.detectMultiScale(gray_img, 1.2, 6)
 
-            for i, emotion in enumerate(emotions_list):
-                emotion_percentages[emotion] = predictions[i] * 100
+        for (x, y, w, h) in faces_detected:
+            roi_gray = gray_img[y:y + w, x:x + h]
+            roi_gray = cv2.resize(roi_gray, (48, 48))
+            img_pixels = image.img_to_array(roi_gray)
+            img_pixels = np.expand_dims(img_pixels, axis=0)
+            img_pixels /= 255.0
+
+            predictions = model.predict(img_pixels)
+            for i, emotion in enumerate(['neutral', 'happiness', 'surprise', 'sadness', 'anger', 'disgust', 'fear']):
+                emotion_percentages[emotion] = predictions[0][i] * 100
                 if emotion_percentages[emotion] > 40:  # consider only emotions with a confidence level above 40%
                     emotion_counts[emotion] += 1
 
     cap.release()
+    cv2.destroyAllWindows()
 
     # Initialize an empty list to store emotion-percentage pairs
     emotion_data = []
